@@ -3,4 +3,4 @@
 /**
  * User Resource
  */
-Route::resource('users', 'UsersController');
+Route::resource('user', 'UserController');

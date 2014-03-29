@@ -1,0 +1,20 @@
+/* 
+  SRG (Simple Responsive Grid)
+  By Mike Merritt 
+  http://github.com/mikemerritt
+*/
+
+// Grid Settings
+$grid-width: 1200px; // Our maximum grid width.
+$gutter-width: 30px; // Gutter width between columns.
+$total-columns: 12; // Total number of columns.
+
+/*
+  Typography Settings
+*/
+
+// Import our fonts
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic,700italic);
+
+// Our base font size
+$base-font-size: 16px !default;

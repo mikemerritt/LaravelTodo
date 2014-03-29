@@ -1,0 +1,19 @@
+/* 
+  SRG (Simple Responsive Grid)
+  By Mike Merritt 
+  http://github.com/mikemerritt
+*/
+
+// Use UTF-8
+@charset "UTF-8";
+
+// Normalize our styles
+@import "normalize";
+
+// Settings for the framework
+@import "settings";
+
+// Import SRG modules
+@import "modules/base";
+@import "modules/grid";
+@import "modules/type";

@@ -1,0 +1,76 @@
+/* 
+  SRG (Simple Responsive Grid)
+  By Mike Merritt 
+  http://github.com/mikemerritt
+*/
+
+// Using Open Sans as default
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic,700italic);
+
+* {
+  font-family: 'Source Sans Pro';
+}
+
+// Used to calculate rem size from a px value
+@function rem($target-size: 16px) {
+  $target-stripped: $target-size / ($target-size * 0 + 1);
+  $base-stripped: $base-font-size / ($base-font-size * 0 + 1);
+  @return ($target-stripped / $base-stripped)*1rem;
+}
+
+// Heading styles
+h1 {
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+h4 {
+  font-size: 1.4rem;
+  line-height: 1.4rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+h5 {
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+h6 {
+  font-size: 1rem;
+  line-height: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+ul, ol {
+  padding-left: 0;
+  margin-left: 20px;
+
+  li {
+    margin-bottom: 0.2rem;
+    font-size: 1rem;
+
+    ul, ol {
+
+    }
+  }
+}

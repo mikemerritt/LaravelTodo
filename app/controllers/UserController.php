@@ -1,6 +1,6 @@
 <?php
 
-class UsersController extends BaseController {
+class UserController extends BaseController {
 
   /**
    * Display a listing of the resource.
@@ -9,6 +9,7 @@ class UsersController extends BaseController {
    */
   public function index() {
     $users = User::all();
+    return View::make('user.index')->with('users', $users);
   }
 
   /**
@@ -17,7 +18,8 @@ class UsersController extends BaseController {
    * @return Response
    */
   public function create() {
-    //
+    $user = new User;
+    return View::make('user.create')->with('user', $user);
   }
 
   /**
@@ -26,7 +28,13 @@ class UsersController extends BaseController {
    * @return Response
    */
   public function store() {
-    //
+    $user = new User(Input::only('name', 'email'));
+
+    if ($user->save()) {
+      return Redirect::route('user.index');
+    } else {
+      return View::make('user.create')->with('user', $user);
+    }
   }
 
   /**
@@ -66,7 +74,8 @@ class UsersController extends BaseController {
    * @return Response
    */
   public function destroy($id) {
-    //
+    $user = User::find($id);
+    $user->delete();
   }
 
 }

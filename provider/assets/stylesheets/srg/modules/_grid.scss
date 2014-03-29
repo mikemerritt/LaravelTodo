@@ -1,0 +1,98 @@
+/* 
+  SRG (Simple Responsive Grid)
+  By Mike Merritt 
+  http://github.com/mikemerritt
+*/
+
+// Used to calculate our column widths.
+@function col-calc($column-number, $total-columns) {
+  @return ($column-number/$total-columns)*100%;
+}
+
+/* 
+  Our row styles. Our top level row should be set to the grid width and 
+  all nested rows should be 100% of their parent. 
+*/
+.row {
+  width: 100%;
+  max-width: $grid-width;
+  margin: 0 auto;
+  @include clearfix();
+
+  .column {
+    float: left;
+    margin-left: 0;
+    margin-right: 0;
+
+    .row {
+      width: auto;
+      margin-left: -$gutter-width / 2;
+      margin-left: -$gutter-width / 2;
+    }
+
+    &:last-child {
+      float: right;
+    }
+
+  }
+
+}
+
+/*
+  Removes gutters from a row. Useful when you want two columns to directly touch.
+*/
+.collapse {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+
+  .column {
+    padding-left: 0;
+    padding-right: 0;
+
+    .row {
+      
+      .column {
+        padding-left: $gutter-width / 2;
+        padding-right: $gutter-width / 2;
+      }
+
+    }
+
+  }
+
+}
+
+/*
+  Generate classes for our three grid sizes.
+*/
+
+// Small Grid
+@for $i from 1 through $total-columns {
+  .small-#{$i} {
+    width: col-calc($i, $total-columns);
+    padding-left: $gutter-width / 2;
+    padding-right: $gutter-width / 2;
+  }
+}
+
+// Medium Grid
+@media #{$medium-up} {
+  @for $i from 1 through $total-columns {
+    .medium-#{$i} {
+      width: col-calc($i, $total-columns);
+      padding-left: $gutter-width / 2;
+      padding-right: $gutter-width / 2;
+    }
+  }
+}
+
+// Large Grid
+@media #{$large-up} {
+  @for $i from 1 through $total-columns {
+    .large-#{$i} {
+      width: col-calc($i, $total-columns);
+      padding-left: $gutter-width / 2;
+      padding-right: $gutter-width / 2;
+    }
+  }
+}
