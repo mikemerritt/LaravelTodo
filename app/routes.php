@@ -9,5 +9,8 @@ Route::get('logout', 'DashboardController@logout');
 // User Resource
 Route::resource('user', 'UserController');
 
-// List Resource
-Route::resource('list', 'ListController');
+// Todo Resource
+Route::resource('todo', 'TodoController');
+
+// Item Resource
+Route::resource('item', 'ItemController');

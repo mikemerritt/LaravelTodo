@@ -7,14 +7,9 @@ class UserController extends BaseController {
     $this->beforeFilter('csrf', array('on' => 'post'));
     $this->beforeFilter(function() {
       if (Auth::check()) {
-        return Redirect::route('list');
+        return Redirect::to('todo');
       }
     }, array('only' => 'index'));
-  }
-
-  public function index() {
-    $users = User::all();
-    return View::make('user.index')->with('users', $users);
   }
 
   /**
@@ -36,10 +31,9 @@ class UserController extends BaseController {
     $user = new User;
 
     if ($user->save()) {
-      return Redirect::route('list');
+      return Redirect::to('todo');
     } else {
-      $messages = $user->errors()->all();
-      return View::make('user.create')->with('user', $user)->with('messages', $messages);
+      return View::make('user.create')->with('user', $user)->with('messages', $user->errors()->all());
     }
   }
 

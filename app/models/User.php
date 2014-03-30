@@ -12,8 +12,15 @@ class User extends Ardent implements UserInterface {
 
   // Validations
   public static $rules = array(
+    'name' => 'required',
     'email' => 'required|email',
-    'password' => 'required|alpha_num|min:8|confirmed'
+    'password' => 'required|alpha_num|min:8|confirmed',
+    'password_confirmation' => 'required|alpha_num|min:8'
+  );
+
+  // Relations
+  public static $relationsData = array(
+    'todos' => array(self::HAS_MANY, 'Todo')
   );
 
   // Ardent magic
@@ -39,5 +46,9 @@ class User extends Ardent implements UserInterface {
   public function getAuthPassword() {
     return $this->password;
   }
+  
+  
+
+  
 
 }

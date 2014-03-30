@@ -7,7 +7,7 @@ class DashboardController extends BaseController {
     $this->beforeFilter('csrf', array('on' => 'post'));
     $this->beforeFilter(function() {
       if (Auth::check()) {
-        return Redirect::to('list');
+        return Redirect::to('todo');
       }
     }, array('only' => 'index'));
   }
@@ -25,9 +25,9 @@ class DashboardController extends BaseController {
   // Process Login (POST /login)
   public function processLogin() {
     if (Auth::attempt(array('email' => Input::get('email'), 'password' => Input::get('password')))) {
-      return Redirect::intended('list');
+      return Redirect::intended('todo');
     } else {
-      return View::make('login');
+      return View::make('dashboard.login');
     }
   }
 
