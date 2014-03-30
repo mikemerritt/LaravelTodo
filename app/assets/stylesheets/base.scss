@@ -10,6 +10,7 @@
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
   box-shadow: 0px 2px 0px 0px darken(#f19354, 0.2);
+  margin-bottom: 25px;
 
   &:hover {
     background: darken(#f19354, 0.15);
@@ -18,7 +19,11 @@
 }
 
 .button.small {
+  padding: 2px 15px;
+  height: 30px;
+  line-height: 26px;
   font-size: 11px;
+  color: white;
 }
 
 .button.alert {
@@ -36,4 +41,44 @@ input {
   border: 1px solid lighten(black, 0.7);
   padding: 5px;
   height: 40px;
+}
+
+.manage-lists {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 400px;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-bottom: 0;
+
+  li {
+    margin: 0;
+    padding: 10px 10px 10px 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.05);
+
+    a {
+      color: #f19354;
+      text-decoration: none;
+
+      &:hover {
+        color: darken(#f19354, 0.2);
+      }
+
+    }
+
+    .remove {
+      color: #ff4141;
+
+      &:hover {
+        color: darken(#ff4141, 0.3);
+      }
+    }
+
+  }
+
+}
+
+.right {
+  float: right;
 }
