@@ -12,5 +12,6 @@ Route::resource('user', 'UserController');
 // Todo Resource
 Route::resource('todo', 'TodoController');
 
-// Item Resource
-Route::resource('item', 'ItemController');
+// Item
+Route::post('item', array('as' => 'item.store', 'uses' => 'ItemController@store'));
+Route::delete('item/{item}', array('as' => 'item.destroy', 'uses' => 'ItemController@destroy'));

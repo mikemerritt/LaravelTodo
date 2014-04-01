@@ -56,7 +56,10 @@ class TodoController extends BaseController {
    * @return Response
    */
   public function show($id) {
-    //
+    $user = User::find(Auth::user()->id);
+    $todo = $user->todos()->where('id', '=', $id)->first();
+    $item = new Item;
+    return View::make('todo.show')->with('todo', $todo)->with('item', $item);
   }
 
   /**

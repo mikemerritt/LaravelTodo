@@ -2,22 +2,21 @@
 use LaravelBook\Ardent\Ardent;
 
 /**
- * Todo Model
+ * Item Model
  */
-class Todo extends Ardent {
+class Item extends Ardent {
   
   // Mass assignment whitelist
-  protected $fillable = array('title');
+  protected $fillable = array('description');
 
   // Validations
   public static $rules = array(
-    'title' => 'required'
+    'description' => 'required'
   );
 
   // Relations
   public static $relationsData = array(
-    'user' => array(self::BELONGS_TO, 'User'),
-    'items' => array(self::HAS_MANY, 'Item')
+    'todo' => array(self::BELONGS_TO, 'Todo')
   );
 
   // Ardent magic

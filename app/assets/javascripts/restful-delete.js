@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
   $('body').on('click', 'a', function() {
     $delete_link = $(this);
     if ($delete_link.data('method') === 'delete') {

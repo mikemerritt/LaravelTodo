@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateListTable extends Migration {
+class CreateItemTable extends Migration {
 
   /**
    * Run the migrations.
@@ -12,10 +12,11 @@ class CreateListTable extends Migration {
    */
   public function up()
   {
-    Schema::create('todos', function($table) {
+    Schema::create('items', function($table) {
       $table->increments('id');
-      $table->string('title');
-      $table->integer('user_id')->foreign('user_id')->references('id')->on('users');
+      $table->string('description');
+      $table->boolean('checked');
+      $table->integer('todo_id')->foreign('todo_id')->references('id')->on('todos');
       $table->timestamps();
     });
   }
@@ -27,7 +28,7 @@ class CreateListTable extends Migration {
    */
   public function down()
   {
-    Schema::drop('todos');
+    Schema::drop('items');
   }
 
 }
